@@ -1,6 +1,6 @@
 # Monitoramento de Atletas
 
-Sistema simples em Python para coletar e analisar dados de atletas que retornaram de Tóquio, com armazenamento em JSON e banco de dados SQL.
+Sistema simples em Python para coletar, armazenar e analisar dados de atletas que retornaram de Tóquio, com persistência em JSON e banco de dados SQL.
 
 ---
 
@@ -37,7 +37,10 @@ Sistema simples em Python para coletar e analisar dados de atletas que retornara
   Arquivos com consultas SQL para gerar relatórios e análises
 
 - `/data/`  
-  Arquivos JSON usados para persistência dos dados dos atletas
+  Pasta principal com a estrutura MVC para o sistema:  
+  - `/model/` — definição das classes e estruturas de dados (ex: Atleta, Covid, Medalhas)  
+  - `/controller/` — tratamento das entradas, lógica de negócio e manipulação dos dados (entrada de dados via código ou leitura de arquivos)  
+  - `/view/` — responsável pela exibição dos resultados e relatórios via prints no terminal (saída)
 
 - `main.py`  
   Script principal em Python para execução do sistema
@@ -63,6 +66,13 @@ Sistema simples em Python para coletar e analisar dados de atletas que retornara
 
 - Python 3.x  
 - Biblioteca padrão do Python para manipulação de JSON (`json`)  
-- SQLite / MySQL / PostgreSQL (escolha sua base e ajuste scripts)  
-- SQL para criação e manipulação das tabelas  
-- JSON para backup e exportação de dados
+- Banco de dados relacional (SQLite, MySQL ou PostgreSQL) para armazenamento e consulta dos dados  
+- SQL para criação, manipulação e consulta das tabelas via scripts `.sql`  
+- Consulta e manipulação dos dados via Python, usando:  
+  - ORM (ex: SQLAlchemy) **ou**  
+  - Execução direta de queries SQL usando bibliotecas como `sqlite3`, `mysql-connector-python` ou `psycopg2`  
+- Estrutura MVC para organização do código com:  
+  - Model (classes e dados)  
+  - Controller (lógica de negócio e manipulação)  
+  - View (exibição no terminal via prints)  
+- JSON para backup, exportação e manipulação local dos dados  
