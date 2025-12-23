@@ -1,17 +1,13 @@
-
-import Covid
-import Medalhas
-import Json
+from . import Covid
+from . import Medalhas
 
 class Atleta:
     def __init__(self, idade: int, sexo: str, cpf: str,
-                teve_febre: bool, temperatura_corporal: float, outro_sintoma: bool, kit_covid: bool, 
-                ouro: int, bronze: int, prata: int) -> None:
+                ) -> None:
         self._idade = idade
         self._sexo = sexo
         self._cpf = cpf
-        self._covid = Covid.Covid(teve_febre, temperatura_corporal, outro_sintoma, kit_covid)
-        self._medalhas = Medalhas.Medalhas(ouro, bronze, prata)
+        
     
     @property
     def idade(self) -> int:
@@ -37,18 +33,35 @@ class Atleta:
     def cpf(self, cpf: str) -> None:
         self._cpf = cpf
 
-    def transformar_em_dicionario(self):
-        dicionario = {}
-        
+    '''@property
+    def covid(self) -> Covid:
+        return self._covid'''
+    
+    '''@covid.setter
+    def covid(self, covid: str) -> None:
+        self._covid = covid
+
+    @property
+    def medalhas(self) -> Medalhas:
+        return self._medalhas
+    
+    @medalhas.setter
+    def medalhas(self, medalhas: str) -> None:
+        self._medalhas = medalhas
+
+    def transformar_em_dicionario(self) -> dict:  
+
         dicionario = {
-            self._cpf = self._cpf,
-            self._sexo = self._sexo,
-            self._idade = self._idade,
-            self._covid.teve_febre() = self._covid.teve_febre(),
-            self._covid.temperatura_corporal() = self._covid.temperatura_corporal(),
-            self._covid.outro_sintoma() = self._covid.outro_sintoma(),
-            self._covid.kit_covid() = self._covid.kit_covid(),
-            self._medalhas.ouro() = self._medalhas.ouro(),
-            self._medalhas.prata() = self._medalhas.prata(),
-            self._medalhas.bronze() = self._medalhas.bronze()
+            "cpf": self._cpf,
+            "sexo": self._sexo,
+            "idade": self._idade,
+            "teve_febre": self._covid.teve_febre,
+            "temperatura": self._covid.temperatura_corporal,
+            "outro_sintoma": self._covid.outro_sintoma,
+            "kit_covid": self._covid.kit_covid,
+            "medalhas_ouro": self._medalhas.ouro,
+            "medalhas_prata": self._medalhas.prata,
+            "medalhas_bronze": self._medalhas.bronze
         }
+
+        return dicionario'''

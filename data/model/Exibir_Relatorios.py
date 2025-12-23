@@ -1,2 +1,0 @@
-class Exibir_Relatorios:
-    

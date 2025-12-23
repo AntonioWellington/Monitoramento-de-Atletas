@@ -1,0 +1,38 @@
+{
+    "1112151111111": {
+        "cpf": "1112151111111",
+        "sexo": "F",
+        "idade": 5,
+        "teve_febre": "N",
+        "temperatura": null,
+        "outro_sintoma": "N",
+        "kit_covid": "N",
+        "medalhas_ouro": 0,
+        "medalhas_prata": 0,
+        "medalhas_bronze": 0
+    },
+    "1151111111": {
+        "cpf": "1151111111",
+        "sexo": "F",
+        "idade": 2,
+        "teve_febre": "N",
+        "temperatura": null,
+        "outro_sintoma": "N",
+        "kit_covid": "N",
+        "medalhas_ouro": 0,
+        "medalhas_prata": 0,
+        "medalhas_bronze": 0
+    },
+    "123.456.789-11": {
+        "cpf": "123.456.789-11",
+        "sexo": "F",
+        "idade": 4,
+        "teve_febre": "N",
+        "temperatura": null,
+        "outro_sintoma": "N",
+        "kit_covid": "N",
+        "medalhas_ouro": 0,
+        "medalhas_prata": 0,
+        "medalhas_bronze": 0
+    }
+}

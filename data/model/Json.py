@@ -1,16 +1,22 @@
-import json, re, Atleta
+import json
 from pathlib import Path
 
+
 class Json:
-    def __init__(self, arquivo: str) -> None:
-        self._arquivo = arquivo
+    def __init__(self, dados: dict) -> None:
+        self._arquivo = "dados.json"
+        self._dados = dados
 
     @property
     def dados(self) -> dict:
         return self._dados
     
-    def atualizar(self, atributo: str, novo_dado: str) -> None:
-        self.dados[cpf][atributo] = novo_dado
+    @dados.setter
+    def dados(self, dados: dict) -> None:
+        self._dados = dados
+
+    def atualizar(self, cpf: str, atributo: str, novo_dado: str) -> None:
+        self._dados[cpf][atributo] = novo_dado
     
     def abrir(self) -> None:
         self._arquivo = Path(self._arquivo)
@@ -25,17 +31,7 @@ class Json:
         
         salvar = self.abrir()
 
-        salvar[Atleta.Atleta.cpf] = {
-            "idade": Atleta.Atleta.idade,
-            "sexo": Atleta.Atleta.sexo,
-            "cpf": Atleta.Atleta.cpf,
-            "teve_febre": Atleta.Atleta.teve_febre,
-            "temperatura_corporal": Atleta.Atleta.temperatura_corporal,
-            "outro_sintoma": Atleta.Atleta.outro_sintoma,
-            "kit_covid": Atleta.Atleta.kit_covid,
-            "ouro": Atleta.Atleta.ouro,
-            "bronze": Atleta.Atleta.bronze,
-            "prata": Atleta.Atleta.prata
-        }
+        salvar[self._dados["cpf"]] = self._dados
+
         with open(self._arquivo, 'w', encoding='utf-8') as dados:
             json.dump(salvar, dados, indent=4)
